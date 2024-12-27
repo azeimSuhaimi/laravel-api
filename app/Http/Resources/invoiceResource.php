@@ -17,7 +17,7 @@ class invoiceResource extends JsonResource
         //return parent::toArray($request);
         return [
             'id' => $this->id,
-            'invoice_id' => $this->invoice_id,
+            'picture' => $this->picture,
             'text' => 'apa saje nak'
         ];
     }

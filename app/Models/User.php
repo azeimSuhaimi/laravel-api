@@ -69,7 +69,7 @@ class User extends Authenticatable
             return true;
     }//end method
 
-    public static function add_user($name,$email,$phone,$ic)
+    public static function add_user($name,$email,$phone,$ic,$picture)
     {
         $now = Carbon::now();// get date today
         
@@ -79,6 +79,7 @@ class User extends Authenticatable
         $user->email = $email;
         $user->phone = $phone;
         $user->ic = $ic;
+        $user->picture = $picture;
         $user->password = Hash::make($ic);
         $user->date_register = $now;
         $user->toyyip_key = Crypt::encryptString('');
