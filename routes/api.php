@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\list_invoiceController;
+use App\Http\Controllers\login;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,18 @@ Route::controller(list_invoiceController::class)->group(function () {
 
     Route::get('/index','index')->name('daily.sale.report');
     Route::get('/show/{id}','show');
+    Route::post('/store','store')->middleware(['auth:sanctum']);
+    Route::patch('/update/{id}','update')->middleware(['auth:sanctum']);
+    Route::delete('/destroy/{id}','destroy')->middleware(['auth:sanctum']);
+    
+
+});//end group
+
+Route::controller(login::class)->group(function () {
+
+    Route::post('/login','index')->name('login');
+    Route::post('/logout','logout')->name('login')->middleware(['auth:sanctum']);
+    
     
 
 });//end group
